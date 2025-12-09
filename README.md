@@ -14,7 +14,7 @@ Ideal para laboratórios de informática, pequenas redes ou uso em sala de aula.
 - Tudo offline – abre o `index.html` e já funciona!
 
 ## Capturas de Tela
-<img src="screenshots/tela-principal.png" width="800" alt="Tela principal">
+<img src="screentiro.png" width="800" alt="Tela principal">
 
 *(Depois que tirar as prints, coloca na pasta `/screenshots` e deixa esses links)*
 
