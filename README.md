@@ -15,7 +15,6 @@ Ideal para laboratórios de informática, pequenas redes ou uso em sala de aula.
 
 ## Capturas de Tela
 <img src="screenshots/tela-principal.png" width="800" alt="Tela principal">
-<img src="screenshots/historico.png" width="800" alt="Histórico de testes">
 
 *(Depois que tirar as prints, coloca na pasta `/screenshots` e deixa esses links)*
 
@@ -32,4 +31,5 @@ Ideal para laboratórios de informática, pequenas redes ou uso em sala de aula.
 - HTML5
 - CSS3 (com Flexbox e Grid)
 - JavaScript puro (Vanilla JS)
+- Node JS
 - localStorage para persistência
