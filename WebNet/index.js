@@ -70,18 +70,18 @@ app.get("/api/dispositivos", async (req, res) => {
   // 35. Define a rota GET para listar todos os dispositivos.
   try {
     // 36. Inicia o bloco try para a operação de leitura no DB.
-    const query = ` // 37. Inicia a definição da query SQL em um template literal.
+    const query = `
             SELECT 
-                d.*, // 38. Seleciona todas as colunas da tabela Dispositivo (d).
-                lc.resultado AS status_recente, // 39. Seleciona o resultado do log de conectividade (lc) como 'status_recente'.
-                lc.data_teste AS data_recente // 40. Seleciona a data do teste como 'data_recente'.
-            FROM Dispositivo d // 41. Tabela principal (Dispositivo) com alias 'd'.
-            LEFT JOIN Log_Conectividade lc ON lc.id = ( // 42. Faz um LEFT JOIN com Log_Conectividade (lc). LEFT JOIN garante que dispositivos sem logs sejam incluídos.
-                SELECT id // 43. Inicia a subconsulta para encontrar o log mais recente.
-                FROM Log_Conectividade // 44. Busca na tabela de logs.
-                WHERE dispositivo_id = d.id // 45. Filtra os logs apenas para o dispositivo atual.
-                ORDER BY data_teste DESC // 46. Ordena os logs pela data do teste, do mais novo para o mais antigo.
-                LIMIT 1 // 47. Limita o resultado a 1, pegando apenas o log mais recente.
+                d.*,
+                lc.resultado AS status_recente,
+                lc.data_teste AS data_recente
+            FROM Dispositivo d
+            LEFT JOIN Log_Conectividade lc ON lc.id = (
+                SELECT id 
+                FROM Log_Conectividade 
+                WHERE dispositivo_id = d.id 
+                ORDER BY data_teste DESC
+                LIMIT 1
             )
         `;
     const [dispositivos] = await pool.execute(query); // 48. Executa a query e desestrutura o resultado (o primeiro elemento é o array de linhas).
@@ -194,3 +194,4 @@ app.listen(PORT, () => {
   // 87. Inicia o servidor Express para escutar na porta definida (3000).
   console.log(`Servidor rodando em http://localhost:${PORT}`); // 88. Loga uma mensagem de confirmação no console após o servidor iniciar.
 });
+
